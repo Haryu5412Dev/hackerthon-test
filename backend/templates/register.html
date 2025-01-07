@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="{{ url_for('register') }}" method="POST">
+        <label for="username">사용자 이름:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="password">비밀번호:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <label for="age">나이:</label>
+        <select name="age" id="age" min="0" max="100" required>
+            <option value="10-19">10-19</option>
+            <option value="20-29">20-29</option>
+            <option value="30-39">30-39</option>
+            <option value="40-49">40-49</option>
+            <option value="50-59">50-59</option>
+            <option value="60+">60+</option>
+        </select>
+        <br>
+        <label for="country">언어(국가) 선택:</label>
+        <select name="country" id="country" required>
+            <option value="US">English (United States)</option>
+            <option value="CA">English/French (Canada)</option>
+            <option value="GB">English (United Kingdom)</option>
+            <option value="AU">English (Australia)</option>
+            <option value="DE">Deutsch (Deutschland)</option>
+            <option value="FR">Français (France)</option>
+            <option value="IN">हिन्दी/English (India)</option>
+            <option value="JP">日本語 (日本)</option>
+            <option value="BR">Português (Brasil)</option>
+            <option value="ZA">English/Afrikaans/Zulu (South Africa)</option>
+            <option value="IT">Italiano (Italia)</option>
+            <option value="MX">Español (México)</option>
+            <option value="ES">Español (España)</option>
+            <option value="NG">English (Nigeria)</option>
+            <option value="ID">Bahasa Indonesia (Indonesia)</option>
+            <option value="PH">English/Filipino (Philippines)</option>
+            <option value="RU">Русский (Россия)</option>
+            <option value="KR">한국어 (대한민국)</option>
+            <option value="SG">English/华文/தமிழ் (Singapore)</option>
+            <option value="TH">ไทย (ประเทศไทย)</option>
+            <option value="VN">Tiếng Việt (Việt Nam)</option>
+            <option value="TR">Türkçe (Türkiye)</option>
+            <option value="CN">中文 (中国)</option>
+            <option value="TW">中文 (台灣)</option>
+            <option value="AR">العربية (الإمارات)</option>
+        </select>
+        
+        <br>
+        <button type="submit">회원가입</button>
+    </form>
+    
+    <br>
+    <a href="{{ url_for('login') }}">로그인으로 이동</a><br><br>
+    <a href="{{ url_for('home') }}">메인화면으로 이동</a>
+</body>
+</html>

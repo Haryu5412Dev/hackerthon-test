@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>유저 목록</title>
+</head>
+<body>
+    <h1>유저 목록</h1>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Create Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td> <!-- 유저 ID -->
+                <td>{{ user[1] }}</td> <!-- 유저 이름 -->
+                <td>{{ user[2] }}</td> <!-- 가입일 -->
+                <td>{{ user[3] }}</td> <!-- 나이 -->
+                <td>{{ user[4] }}</td> <!-- 국가 코드 -->
+                <td>
+                    <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="POST">
+                        <button type="submit">삭제</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">등록된 유저가 없습니다.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('home') }}">홈으로 돌아가기</a>
+</body>
+</html>

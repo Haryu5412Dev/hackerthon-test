@@ -1,0 +1,1 @@
+from .onclick_translator import OnClickTranslator
